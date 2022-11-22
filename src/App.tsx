@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useRef } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Index from "./components/Index";
+import About from "./components/About";
+import Work from "./components/Work";
+import Contact from "./components/Contact";
 
 function App() {
+  /*const mainRef = useRef(null);
+  const aboutRef = useRef(null);
+  const workRef = useRef(null);
+  const contactRef = useRef(null);*/
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="about" element={<About />} />
+        <Route path="work" element={<Work />} />
+        <Route path="contact" element={<Contact />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
