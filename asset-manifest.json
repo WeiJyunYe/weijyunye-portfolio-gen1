@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/weijyunye-portfolio-gen1/static/css/main.039d4f79.css",
+    "main.js": "/weijyunye-portfolio-gen1/static/js/main.89da6438.js",
+    "index.html": "/weijyunye-portfolio-gen1/index.html",
+    "main.039d4f79.css.map": "/weijyunye-portfolio-gen1/static/css/main.039d4f79.css.map",
+    "main.89da6438.js.map": "/weijyunye-portfolio-gen1/static/js/main.89da6438.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.039d4f79.css",
+    "static/js/main.89da6438.js"
+  ]
+}
