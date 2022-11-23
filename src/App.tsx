@@ -1,26 +1,30 @@
-import { useRef } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./components/Index";
 import About from "./components/About";
-import Work from "./components/Work";
 import Contact from "./components/Contact";
+import Header from "./components/Header";
+import Main from "./components/Main";
+import Work from "./components/Work";
+import { useRef } from "react";
 
-function App() {
-  /*const mainRef = useRef(null);
-  const aboutRef = useRef(null);
-  const workRef = useRef(null);
-  const contactRef = useRef(null);*/
+const App = () => {
+  const mainRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const workRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="about" element={<About />} />
-        <Route path="work" element={<Work />} />
-        <Route path="contact" element={<Contact />} />
-      </Routes>
-    </BrowserRouter>
+    <div>
+      <Header
+        mainRef={mainRef}
+        aboutRef={aboutRef}
+        workRef={workRef}
+        contactRef={contactRef}
+      />
+      <Main ref={mainRef} />
+      <About ref={aboutRef} />
+      <Work ref={workRef} />
+      <Contact ref={contactRef} />
+    </div>
   );
-}
+};
 
 export default App;
