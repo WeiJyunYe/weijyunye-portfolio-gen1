@@ -21,6 +21,7 @@ const About = forwardRef(
             <li>javascript</li>
             <li>react</li>
             <li>typescript</li>
+            <li>switch testing msg</li>
           </ul>
         </div>
       </div>
