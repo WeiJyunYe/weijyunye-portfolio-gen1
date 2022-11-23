@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/weijyunye-portfolio-gen1/static/css/main.c8a75483.css",
-    "main.js": "/weijyunye-portfolio-gen1/static/js/main.4e4fe4b4.js",
+    "main.js": "/weijyunye-portfolio-gen1/static/js/main.efbd4b24.js",
     "index.html": "/weijyunye-portfolio-gen1/index.html",
     "main.c8a75483.css.map": "/weijyunye-portfolio-gen1/static/css/main.c8a75483.css.map",
-    "main.4e4fe4b4.js.map": "/weijyunye-portfolio-gen1/static/js/main.4e4fe4b4.js.map"
+    "main.efbd4b24.js.map": "/weijyunye-portfolio-gen1/static/js/main.efbd4b24.js.map"
   },
   "entrypoints": [
     "static/css/main.c8a75483.css",
-    "static/js/main.4e4fe4b4.js"
+    "static/js/main.efbd4b24.js"
   ]
 }
