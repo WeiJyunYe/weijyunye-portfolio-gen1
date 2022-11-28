@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 .rwd-font {
-  font-size: clamp(2rem, 5vw + 0.5rem, 6rem);
+  font-size: clamp(2rem, 5vw + 0.5rem, 4.5rem);
 }
 .rwd-font-sm {
-  font-size: clamp(2rem, 5vw + 0.5rem, 3rem);
+  font-size: clamp(1.5rem, 2vw + 0.5rem, 2.25rem);
 }
 .rwd-font-usm {
   font-size: clamp(0.5rem, 0.7vw + 0.5rem, 4rem);

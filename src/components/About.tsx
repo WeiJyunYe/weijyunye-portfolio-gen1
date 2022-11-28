@@ -4,8 +4,8 @@ import TerminalIcon from "@mui/icons-material/TerminalSharp";
 
 const About = forwardRef<HTMLDivElement>((props, ref) => {
   return (
-    <div className="w-full h-screen bg-[#003153]" ref={ref}>
-      <div className="flex flex-col w-full h-screen justify-center items-center text-slate-300">
+    <div className="bg-[#001e43] w-full h-screen" ref={ref}>
+      <div className="w-full h-screen mx-auto flex flex-col  justify-center items-center text-slate-300">
         <div className="w-full max-w-[1080px] grid md:grid-cols-2 gap-3 p-10">
           <div className="pt-16">
             <p className="rwd-font-sm font-bold inline border-b-4 border-[#CDA136]">

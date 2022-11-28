@@ -8,8 +8,8 @@ const Main = forwardRef<
   }
 >((props, ref) => {
   return (
-    <div className="flex justify-center bg-[#003153] w-full h-screen" ref={ref}>
-      <div className="flex flex-col justify-center text-slate-300 font-sans font-extrabold p-10">
+    <div className="flex justify-center bg-[#001e43] w-full h-screen" ref={ref}>
+      <div className="flex flex-col justify-center mx-auto text-slate-300 font-sans font-extrabold p-10">
         <p className="rwd-font">Hi,</p>
         <h1 className="rwd-font leading-[48px]">
           I'm <span className="text-[#CDA136]">Weijyun Ye</span>,
