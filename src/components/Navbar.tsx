@@ -33,7 +33,7 @@ const Navbar: React.FC<NavbarProps> = ({
         fontSize="large"
         className="absolute right-7 top-7 md:hidden scale-125 cursor-pointer"
       />
-      <li className="duration-300 hover:text-[#CDA136] cursor-pointer">
+      <li className="duration-300 hover:text-[#e5a323] cursor-pointer select-none">
         <button
           onClick={() => {
             smoothScroll(mainRef);
@@ -43,7 +43,7 @@ const Navbar: React.FC<NavbarProps> = ({
           Home
         </button>
       </li>
-      <li className="duration-300 hover:text-[#CDA136] cursor-pointer">
+      <li className="duration-300 hover:text-[#e5a323] cursor-pointer select-none">
         <button
           onClick={() => {
             smoothScroll(aboutRef);
@@ -53,7 +53,7 @@ const Navbar: React.FC<NavbarProps> = ({
           About
         </button>
       </li>
-      <li className="duration-300 hover:text-[#CDA136] cursor-pointer">
+      <li className="duration-300 hover:text-[#e5a323] cursor-pointer select-none">
         <button
           onClick={() => {
             smoothScroll(workRef);
@@ -63,7 +63,7 @@ const Navbar: React.FC<NavbarProps> = ({
           Work
         </button>
       </li>
-      <li className="duration-300 hover:text-[#CDA136] cursor-pointer">
+      <li className="duration-300 hover:text-[#e5a323] cursor-pointer select-none">
         <button
           onClick={() => {
             smoothScroll(contactRef);

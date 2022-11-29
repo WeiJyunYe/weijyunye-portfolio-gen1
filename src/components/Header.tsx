@@ -30,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <div className="fixed w-full h-20 text-slate-300 bg-opacity-20 backdrop-blur-lg shadow-[0_0px_15px_3px_rgba(0,0,0,0.2)] flex justify-between items-center p-4 select-none]">
       <button
-        className="w-16 h-16 pl-8 pt-[2px] border-slate-300 text-3xl font-sans font-extrabold flex justify-center items-center duration-300 hover:border-[#CDA136] hover:text-[#CDA136] cursor-pointer"
+        className="w-16 h-16 ml-4 pt-[2px] border-slate-300 rwd-font-sm font-sans font-extrabold flex justify-center items-center duration-300 hover:border-[#e5a323] hover:text-[#e5a323] cursor-pointer"
         onClick={() => smoothScroll(mainRef)}
       >
         ARYE
@@ -47,13 +47,13 @@ const Header: React.FC<HeaderProps> = ({
         </div>
 
         <ul className="hidden text-xl md:flex gap-10 p-6">
-          <li className="duration-300 hover:text-[#CDA136] cursor-pointer">
+          <li className="duration-300 hover:text-[#e5a323] cursor-pointer select-none">
             <button onClick={() => smoothScroll(aboutRef)}>About</button>
           </li>
-          <li className="duration-300 hover:text-[#CDA136] cursor-pointer">
+          <li className="duration-300 hover:text-[#e5a323] cursor-pointer select-none">
             <button onClick={() => smoothScroll(workRef)}>Work</button>
           </li>
-          <li className="duration-300 hover:text-[#CDA136] cursor-pointer">
+          <li className="duration-300 hover:text-[#e5a323] cursor-pointer select-none">
             <button onClick={() => smoothScroll(contactRef)}>Contact</button>
           </li>
         </ul>

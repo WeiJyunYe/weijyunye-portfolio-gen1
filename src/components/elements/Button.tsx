@@ -1,12 +1,16 @@
 interface ButtonProps {
-  children: string;
+  children: React.ReactNode;
+  demoUrl: string;
+  repoUrl: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ children }) => {
+const Button = ({ children, demoUrl, repoUrl }: ButtonProps): JSX.Element => {
   return (
-    <button className="px-4 py-3 m-2 border-[1px] border-[#CDA136] rounded  hover:bg-[#CDA136]/30 duration-300 text-lg text-[#CDA136] font-bold select-none">
-      {children}
-    </button>
+    <a href={repoUrl || demoUrl}>
+      <button className="w-16 h-16 p-1 border-[1px] border-[#e5a323] rounded  hover:bg-[#e5a323]/30 duration-300 text-lg text-[#e5a323] font-bold select-none">
+        {children}
+      </button>
+    </a>
   );
 };
 
