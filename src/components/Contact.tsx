@@ -31,7 +31,10 @@ const Contact = forwardRef<HTMLDivElement>((props, ref) => {
           placeholder="Message"
           className="bg-slate-800 p-2 rounded"
         ></textarea>
-        <button className="p-2 my-4 w-20 text-[#e5a323] border-[1px] rounded hover:bg-[#e5a323]/30 duration-300 text-lg font-bold select-none">
+        <button
+          className="p-2 my-4 w-20 text-[#e5a323] border-[1px] rounded hover:bg-[#e5a323]/30 duration-300 text-lg font-bold select-none"
+          disabled
+        >
           Submit
         </button>
       </form>

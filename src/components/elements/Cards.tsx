@@ -26,8 +26,8 @@ const Card: React.FC<CardProps> = ({
         </span>
         <p className="text-slate-400">{description}</p>
         <div className="pt-8 text-center flex justify-between">
-          <Button children="Demo" demoUrl={demoUrl} repoUrl={repoUrl} />
-          <Button children="Repo" demoUrl={demoUrl} repoUrl={repoUrl} />
+          <Button children="Demo" url={demoUrl} />
+          <Button children="Repo" url={repoUrl} />
         </div>
       </div>
     </div>

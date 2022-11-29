@@ -28,7 +28,7 @@ const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <div className="fixed w-full h-20 text-slate-300 bg-opacity-20 backdrop-blur-lg shadow-[0_0px_15px_3px_rgba(0,0,0,0.2)] flex justify-between items-center p-4 select-none]">
+    <div className="fixed w-full h-20 text-slate-300 bg-opacity-20 backdrop-blur-lg shadow-[0_0px_15px_3px_rgba(0,0,0,0.2)] flex justify-between items-center p-4 select-none] z-40">
       <button
         className="w-16 h-16 ml-4 pt-[2px] border-slate-300 rwd-font-sm font-sans font-extrabold flex justify-center items-center duration-300 hover:border-[#e5a323] hover:text-[#e5a323] cursor-pointer"
         onClick={() => smoothScroll(mainRef)}
