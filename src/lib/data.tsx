@@ -17,11 +17,11 @@ export const workDataSheet = [
   },
   {
     id: 1,
-    title: "Taiwan Weather App",
+    title: "Weather App",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Interdum posuere lorem ipsum dolor.",
-    demo: "https://weijyunye.github.io/taiwan-weather-app/",
-    repo: "https://github.com/WeiJyunYe/taiwan-weather-app",
+    demo: "https://weijyunye.github.io/weather-app/",
+    repo: "https://github.com/WeiJyunYe/weather-app",
   },
   {
     id: 0,
