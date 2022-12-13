@@ -1,10 +1,19 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        Meddon: ['Meddon', 'cursive'],
+        NotoSerif: ['Noto Serif', 'serif'],
+        Ubuntu: ['Ubuntu', 'sans-serif']
+      },
       screens: {
-        'sm': '320px',
+        'usm': '320px',
+        // => @media (min-width: 320px) { ... }
+
+        'sm': '480px',
         // => @media (min-width: 640px) { ... }
 
         'md': '768px',

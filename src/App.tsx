@@ -22,7 +22,7 @@ const App = () => {
       <Main ref={mainRef} workRef={workRef} />
       <About ref={aboutRef} />
       <Work ref={workRef} />
-      <Contact ref={contactRef} />
+      <Contact ref={contactRef} mainRef={mainRef} />
     </div>
   );
 };

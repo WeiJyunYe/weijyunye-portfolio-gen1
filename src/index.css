@@ -2,12 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Meddon&family=Noto+Serif&family=Ubuntu:wght@500&display=swap");
+
+html {
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  overflow: auto;
+  display: noen;
+}
+
 .rwd-font {
-  font-size: clamp(2rem, 5vw + 0.5rem, 4.5rem);
+  font-size: clamp(1.75rem, 5vw + 0.5rem, 3.5rem);
+}
+.rwd-font-md {
+  font-size: clamp(1.75rem, 2vw + 1rem, 2.25rem);
 }
 .rwd-font-sm {
-  font-size: clamp(1.5rem, 2vw + 0.5rem, 2.25rem);
+  font-size: clamp(1.75rem, 2vw + 1rem, 2rem);
 }
 .rwd-font-usm {
-  font-size: clamp(0.5rem, 0.7vw + 0.5rem, 4rem);
+  font-size: clamp(0.5rem, 0.7vw + 0.5rem, 2rem);
 }

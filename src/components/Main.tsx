@@ -1,5 +1,7 @@
 import { forwardRef, RefObject } from "react";
 import Arrow from "@mui/icons-material/ArrowForwardRounded";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const Main = forwardRef<
   HTMLDivElement,
@@ -9,20 +11,31 @@ const Main = forwardRef<
 >((props, ref) => {
   return (
     <div className="flex justify-center bg-[#001e43] w-full h-screen" ref={ref}>
-      <div className="flex flex-col justify-center mx-auto text-slate-300 font-sans font-extrabold p-10">
+      <div className="flex flex-col max-w-[600px] justify-center mx-auto text-slate-300 font-Ubuntu usm:p-5 sm:p-10">
         <p className="rwd-font">Hi,</p>
-        <h1 className="rwd-font leading-[48px]">
+        <h1 className="rwd-font leading-7">
           I'm <span className="text-[#e5a323]">Weijyun Ye</span>,
         </h1>
-        <h2 className="rwd-font">front-end developer.</h2>
-        <p className="py-6 leading-5 font-normal text-md text-slate-400 max-w-[600px]">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet
-          nisl suscipit adipiscing bibendum.
-        </p>
+        <h2 className="rwd-font">
+          <span className="text-[#e5a323]">front-end</span> developer.
+        </h2>
+        <div className="pb-4 gap-2 flex justify-start items-center">
+          <a
+            href="https://github.com/WeiJyunYe"
+            className="hover:bg-[#e5a323] rounded-sm duration-300"
+          >
+            <GitHubIcon fontSize="large" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/weijyunye"
+            className="hover:bg-[#e5a323] rounded-sm duration-300"
+          >
+            <LinkedInIcon fontSize="large" />
+          </a>
+        </div>
         <div>
           <button
-            className="group flex items-center px-8 py-4 font-normal hover:bg-[#e5a323]/30 text-md text-[#e5a323] border-[1px] border-[#e5a323] rounded duration-300 select-none"
+            className="group flex items-center px-6 py-4 font-normal font-NotoSerif hover:bg-[#e5a323]/30 text-md hover:text-[#e5a323] text-slate-300 border-[1px] hover:border-[#e5a323] border-slate-300 rounded duration-300 select-none"
             onClick={() => {
               if (props.workRef.current !== null) {
                 props.workRef.current.scrollIntoView({ behavior: "smooth" });

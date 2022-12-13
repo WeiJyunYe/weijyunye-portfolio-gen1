@@ -24,7 +24,7 @@ const Navbar: React.FC<NavbarProps> = ({
     <ul
       className={
         isExpanded
-          ? "flex flex-col items-center fixed inset-0 h-screen gap-20 justify-center text-3xl z-50 md:hidden bg-[#001e43] bg-opacity-80 transition "
+          ? "flex flex-col items-center fixed inset-0 h-screen gap-20 justify-center text-3xl font-Ubuntu z-50 md:hidden bg-[#001e43] bg-opacity-80 transition "
           : "hidden"
       }
     >
