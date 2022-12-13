@@ -3,8 +3,8 @@ export const workDataSheet = [
     id: 3,
     title: "Personal Website",
     bgUrl: "/thumbnail_portfolio.png",
-    demo: "https://weijyunye.github.io/weijyunye-portfolio-gen1/",
-    repo: "https://github.com/WeiJyunYe/weijyunye-portfolio-gen1",
+    demo: "https://weijyunye.github.io/",
+    repo: "https://github.com/WeiJyunYe/weijyunye.github.io",
   },
   {
     id: 2,
