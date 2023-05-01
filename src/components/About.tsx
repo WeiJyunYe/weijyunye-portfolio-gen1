@@ -15,15 +15,14 @@ const About = forwardRef<HTMLDivElement>((props, ref) => {
           <div className="text-slate-400 font-NotoSerif">
             <p>
               Hello! I am a front-end developer based in Taipei, Taiwan,
-              passionate about building digital products or tools that let
-              people solve their own problems to make lives easier or even
-              better.
+              passionate about building digital products or tools that solve
+              people's problems to make their lives easier or even better.
             </p>
             <br />
             <p>
-              I learned front-end development through self-study, including
-              videos, articles, and books. Also, consult with a senior developer
-              from time to time. About my work, check out the "Work" section.
+              I learned front-end development through self-study and being
+              capable of developing independently. About my work, check out the
+              "Work" section.
             </p>
             <br />
             <p>

@@ -1,5 +1,4 @@
 import Button from "./Button";
-import pic from "../../assets/thumbnail_portfolio.png";
 
 interface CardProps {
   key: number;

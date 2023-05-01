@@ -22,9 +22,13 @@ const Contact = forwardRef<
       .then(
         (result) => {
           console.log(result.text);
+          alert("信件已成功寄出，謝謝你的來信！");
         },
         (error) => {
           console.log(error.text);
+          alert(
+            "寄信失敗，請重新嘗試。若仍然無法寄信，欲請您協助回報問題，請至 https://github.com/WeiJyunYe/weijyunye.github.io/issues 留言，謝謝！"
+          );
         }
       );
     e.currentTarget.reset();
@@ -71,7 +75,7 @@ const Contact = forwardRef<
         />
       </form>
       <div
-        className="flex flex-col justify-center items-center group"
+        className="flex flex-col justify-center items-center group cursor-pointer"
         onClick={() => {
           if (props.mainRef.current !== null) {
             props.mainRef.current.scrollIntoView({ behavior: "smooth" });

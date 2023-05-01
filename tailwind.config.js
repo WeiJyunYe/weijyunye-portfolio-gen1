@@ -7,7 +7,8 @@ module.exports = {
       fontFamily: {
         Meddon: ['Meddon', 'cursive'],
         NotoSerif: ['Noto Serif', 'serif'],
-        Ubuntu: ['Ubuntu', 'sans-serif']
+        Ubuntu: ['Ubuntu', 'sans-serif'],
+        NotoSansCHT: ['Noto Sans TC', 'sans-serif'],
       },
       screens: {
         'usm': '320px',

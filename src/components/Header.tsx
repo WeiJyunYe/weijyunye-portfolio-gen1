@@ -1,12 +1,15 @@
 import { RefObject, useState } from "react";
 import Navbar from "./Navbar";
 import { MenuOutlined } from "@mui/icons-material";
+import Switch from "@mui/material/Switch";
 
 interface HeaderProps {
   mainRef: RefObject<HTMLDivElement>;
   aboutRef: RefObject<HTMLDivElement>;
   workRef: RefObject<HTMLDivElement>;
   contactRef: RefObject<HTMLDivElement>;
+  languageSwitch: () => void;
+  isEng: boolean;
 }
 
 const Header: React.FC<HeaderProps> = ({
@@ -14,6 +17,8 @@ const Header: React.FC<HeaderProps> = ({
   aboutRef,
   workRef,
   contactRef,
+  languageSwitch,
+  isEng,
 }) => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
@@ -46,15 +51,28 @@ const Header: React.FC<HeaderProps> = ({
           <MenuOutlined onClick={expandMenu} fontSize="large" />
         </div>
 
-        <ul className="hidden text-xl md:flex gap-10 p-6 font-Ubuntu">
-          <li className="duration-300 hover:text-[#e5a323] cursor-pointer select-none">
+        <ul className="hidden text-xl md:flex gap-10 p-6 font-Ubuntu select-none">
+          <li className="duration-300 hover:text-[#e5a323] cursor-pointer">
             <button onClick={() => smoothScroll(aboutRef)}>About</button>
           </li>
-          <li className="duration-300 hover:text-[#e5a323] cursor-pointer select-none">
+          <li className="duration-300 hover:text-[#e5a323] cursor-pointer">
             <button onClick={() => smoothScroll(workRef)}>Work</button>
           </li>
-          <li className="duration-300 hover:text-[#e5a323] cursor-pointer select-none">
+          <li className="duration-300 hover:text-[#e5a323] cursor-pointer">
             <button onClick={() => smoothScroll(contactRef)}>Contact</button>
+          </li>
+          <li className="flex items-center text-sm">
+            <p
+              className={`font-NotoSansCHT ${
+                isEng ? "text-slate-300" : "text-[#e5a323]"
+              }`}
+            >
+              中
+            </p>
+            <Switch defaultChecked size="small" onClick={languageSwitch} />
+            <p className={`${isEng ? "text-[#e5a323]" : "text-slate-300"}`}>
+              Eng
+            </p>
           </li>
         </ul>
 
@@ -66,6 +84,8 @@ const Header: React.FC<HeaderProps> = ({
           aboutRef={aboutRef}
           workRef={workRef}
           contactRef={contactRef}
+          languageSwitch={languageSwitch}
+          isEng={isEng}
         />
       </nav>
     </div>

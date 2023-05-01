@@ -7,17 +7,30 @@ const Main = forwardRef<
   HTMLDivElement,
   {
     workRef: RefObject<HTMLDivElement>;
+    isEng: boolean;
   }
 >((props, ref) => {
   return (
     <div className="flex justify-center bg-[#001e43] w-full h-screen" ref={ref}>
-      <div className="flex flex-col max-w-[600px] justify-center mx-auto text-slate-300 font-Ubuntu usm:p-5 sm:p-10">
-        <p className="rwd-font">Hi,</p>
-        <h1 className="rwd-font leading-7">
-          I'm <span className="text-[#e5a323]">Weijyun Ye</span>,
-        </h1>
+      <div
+        className={`flex flex-col min-w-[559px] max-w-[600px] justify-center mx-auto text-slate-300 font-Ubuntu usm:p-5 sm:p-10 ${
+          props.isEng ? "font-Ubuntu" : "font-NotoSanCHT"
+        }`}
+      >
+        <p className="rwd-font">{props.isEng ? "Hi," : "嗨，"}</p>
+        <h2 className="rwd-font leading-7">
+          {props.isEng ? "I'm " : "我是"}
+          <span className="text-[#e5a323]">
+            {props.isEng ? "Weijyun Ye" : "葉韋均"}
+          </span>
+          ,
+        </h2>
         <h2 className="rwd-font">
-          <span className="text-[#e5a323]">front-end</span> developer.
+          <span className={`${props.isEng ? "hidden" : ""}`}>一位</span>
+          <span className="text-[#e5a323]">
+            {props.isEng ? "front-end" : "前端"}
+          </span>
+          {props.isEng ? " developer." : "工程師。"}
         </h2>
         <div className="pb-4 gap-2 flex justify-start items-center">
           <a
@@ -35,15 +48,18 @@ const Main = forwardRef<
         </div>
         <div>
           <button
-            className="group flex items-center px-6 py-4 font-normal font-NotoSerif hover:bg-[#e5a323]/30 text-md hover:text-[#e5a323] text-slate-300 border-[1px] hover:border-[#e5a323] border-slate-300 rounded duration-300 select-none"
+            className={`group flex items-center px-6 py-4 font-normal  ${
+              props.isEng ? "font-NotoSerif" : "font-NotoSanCHT"
+            } hover:bg-[#e5a323]/10 text-md hover:text-[#e5a323] text-slate-300 border-[1px] hover:border-[#e5a323] border-slate-300 rounded duration-300 select-none`}
             onClick={() => {
               if (props.workRef.current !== null) {
+                console.log(props.workRef.current);
                 props.workRef.current.scrollIntoView({ behavior: "smooth" });
               }
             }}
           >
-            Check out my work
-            <span className="group-hover:rotate-90 duration-200 pl-1">
+            {props.isEng ? "Check out my work" : "看看我的作品"}
+            <span className="group-hover:rotate-90 duration-150 pl-1">
               <Arrow />
             </span>
           </button>

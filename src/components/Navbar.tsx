@@ -1,5 +1,6 @@
 import { Close } from "@mui/icons-material";
 import { RefObject } from "react";
+import Switch from "@mui/material/Switch";
 
 interface NavbarProps {
   expandMenu: () => void;
@@ -9,6 +10,8 @@ interface NavbarProps {
   aboutRef: RefObject<HTMLDivElement>;
   workRef: RefObject<HTMLDivElement>;
   contactRef: RefObject<HTMLDivElement>;
+  languageSwitch: () => void;
+  isEng: boolean;
 }
 
 const Navbar: React.FC<NavbarProps> = ({
@@ -19,6 +22,8 @@ const Navbar: React.FC<NavbarProps> = ({
   aboutRef,
   workRef,
   contactRef,
+  languageSwitch,
+  isEng,
 }) => {
   return (
     <ul
@@ -72,6 +77,17 @@ const Navbar: React.FC<NavbarProps> = ({
         >
           Contact
         </button>
+      </li>
+      <li className="flex items-center text-xl">
+        <p
+          className={`font-NotoSansCHT ${
+            isEng ? "text-slate-300" : "text-[#e5a323]"
+          }`}
+        >
+          中
+        </p>
+        <Switch defaultChecked size="small" onClick={languageSwitch} />
+        <p className={`${isEng ? "text-[#e5a323]" : "text-slate-300"}`}>Eng</p>
       </li>
     </ul>
   );

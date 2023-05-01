@@ -3,16 +3,17 @@
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=Meddon&family=Noto+Serif&family=Ubuntu:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap");
 
 html {
   overflow: hidden;
   height: 100%;
+  background: #001e43;
 }
 
 body {
   height: 100%;
   overflow: auto;
-  display: noen;
 }
 
 .rwd-font {
