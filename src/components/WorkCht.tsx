@@ -1,8 +1,8 @@
 import { forwardRef } from "react";
 import Card from "./elements/Cards";
-import { workDataSheet } from "../lib/data";
+import { workDataSheet } from "../lib/dataCht";
 
-const Work = forwardRef<HTMLDivElement>((props, ref) => {
+const Work = forwardRef<HTMLDivElement, { isEng: boolean }>((props, ref) => {
   return (
     <div className="bg-[#001e43] w-full h-full text-slate-300">
       <div className="w-full h-full mx-auto flex flex-col justify-center p-10 max-w-[1080px]">
@@ -10,7 +10,7 @@ const Work = forwardRef<HTMLDivElement>((props, ref) => {
           <p className="rwd-font-md font-bold inline border-b-4 border-[#e5a323] font-Ubuntu">
             Work
           </p>
-          <p className="py-2 text-slate-400 font-NotoSerif">{`// Some side projects I have built`}</p>
+          <p className="py-2 text-slate-400 font-NotoSansCHT">{`// 一些我寫的專案`}</p>
         </div>
         <div className="usm:grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {workDataSheet.map((currentCard) => (
@@ -20,6 +20,7 @@ const Work = forwardRef<HTMLDivElement>((props, ref) => {
               bgUrl={currentCard.bgUrl}
               demoUrl={currentCard.demo}
               repoUrl={currentCard.repo}
+              isEng={props.isEng}
             />
           ))}
         </div>

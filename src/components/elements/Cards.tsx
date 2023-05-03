@@ -6,14 +6,25 @@ interface CardProps {
   bgUrl: string;
   demoUrl: string;
   repoUrl: string;
+  isEng: boolean;
 }
 
-const Card: React.FC<CardProps> = ({ title, bgUrl, demoUrl, repoUrl }) => {
+const Card: React.FC<CardProps> = ({
+  title,
+  bgUrl,
+  demoUrl,
+  repoUrl,
+  isEng,
+}) => {
   console.log(bgUrl);
   return (
     <div className="bg-[#202f55] w-full h-full max-w-xl shadow-lg shadow-black rounded-md flex justify-center items-center mx-auto py-4 hover:-translate-y-1 duration-300 hover:border-[#e5a323] border-[1px] border-transparent group">
       <div className="flex flex-col w-full h-full">
-        <h3 className="px-6 pb-4 text-2xl font-Ubuntu text-slate-300 group-hover:text-[#e5a323] duration-300">
+        <h3
+          className={`px-6 pb-4 text-2xl ${
+            isEng ? "font-Ubuntu" : "font-NotoSansCHT"
+          } text-slate-300 group-hover:text-[#e5a323] duration-300`}
+        >
           {title}
         </h3>
         <div

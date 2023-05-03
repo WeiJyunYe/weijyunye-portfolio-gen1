@@ -69,7 +69,7 @@ const Header: React.FC<HeaderProps> = ({
             >
               中
             </p>
-            <Switch defaultChecked size="small" onClick={languageSwitch} />
+            <Switch defaultChecked size="small" onChange={languageSwitch} />
             <p className={`${isEng ? "text-[#e5a323]" : "text-slate-300"}`}>
               Eng
             </p>
