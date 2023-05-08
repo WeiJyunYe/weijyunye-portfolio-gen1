@@ -9,15 +9,16 @@ const Contact = forwardRef<
   }
 >((props, ref) => {
   const form = useRef<HTMLFormElement>(null);
+
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (form.current === null) return;
     emailjs
       .sendForm(
-        "contact_service",
-        "template_bmxrvut",
+        process.env.REACT_APP_EMAILJS_SERVICE_ID!,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID!,
         form.current,
-        process.env.REACT_APP_API_KEY
+        process.env.REACT_APP_EMAILJS_KEY!
       )
       .then(
         (result) => {
@@ -33,6 +34,7 @@ const Contact = forwardRef<
       );
     e.currentTarget.reset();
   };
+
   return (
     <div className="bg-[#001e43] w-full h-screen min-h-[800px] text-slate-300 flex flex-col justify-center items-center p-10">
       <form
@@ -65,7 +67,7 @@ const Contact = forwardRef<
           name="message"
           rows={10}
           placeholder="請輸入您的留言..."
-          className="bg-slate-800 px-4 py-2 rounded shadow-[inset_0_2px_3px_2px_rgba(0,0,0,0.4)] outline-none border-[1px] border-[#001e43] focus:border-[#e5a323] hover:border-[#e5a323] duration-300 "
+          className="bg-slate-800 px-4 py-2 rounded shadow-[inset_0_2px_3px_2px_rgba(0,0,0,0.4)] outline-none border-[1px] border-[#001e43] focus:border-[#e5a323] hover:border-[#e5a323] duration-300"
           required
         ></textarea>
         <input
