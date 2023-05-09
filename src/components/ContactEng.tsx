@@ -9,16 +9,21 @@ const Contact = forwardRef<
   }
 >((props, ref) => {
   const form = useRef<HTMLFormElement>(null);
+
+  const emailJSServiceID = process.env.REACT_APP_EMAILJS_SERVICE_ID as string;
+  const emailJSTemplateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID as string;
+  const emailJSKey = process.env.REACT_APP_EMAILJS_KEY as string;
+
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!emailJSServiceID || !emailJSTemplateID || !emailJSKey) {
+      console.error("EmailJS environment variables not set.");
+      return;
+    }
     if (form.current === null) return;
     emailjs
-      .sendForm(
-        "contact_service",
-        "template_bmxrvut",
-        form.current,
-        process.env.REACT_APP_API_KEY
-      )
+      .sendForm(emailJSServiceID, emailJSTemplateID, form.current, emailJSKey)
       .then(
         (result) => {
           console.log(result.text);
