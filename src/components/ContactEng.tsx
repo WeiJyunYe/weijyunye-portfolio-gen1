@@ -1,6 +1,13 @@
-import React, { forwardRef, RefObject, useRef } from "react";
+import React, {
+  forwardRef,
+  RefObject,
+  useRef,
+  useState,
+  useEffect,
+} from "react";
 import emailjs from "@emailjs/browser";
 import RocketRoundedIcon from "@mui/icons-material/RocketRounded";
+import SnackbarEng from "./elements/SnackbarEng";
 
 const Contact = forwardRef<
   HTMLDivElement,
@@ -8,11 +15,26 @@ const Contact = forwardRef<
     mainRef: RefObject<HTMLDivElement>;
   }
 >((props, ref) => {
+  const [showSnackbar, setShowSnackbar] = useState<boolean>(false);
+  const [apiResult, setApiResult] = useState<string>("");
+
   const form = useRef<HTMLFormElement>(null);
 
   const emailJSServiceID = process.env.REACT_APP_EMAILJS_SERVICE_ID as string;
   const emailJSTemplateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID as string;
   const emailJSKey = process.env.REACT_APP_EMAILJS_KEY as string;
+
+  useEffect(() => {
+    if (apiResult === "OK") {
+      setShowSnackbar(true);
+      setTimeout(() => {
+        setApiResult("");
+        setShowSnackbar(false);
+        console.log(apiResult);
+        console.log(showSnackbar);
+      }, 4000);
+    }
+  }, [apiResult]);
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,7 +45,7 @@ const Contact = forwardRef<
       .then(
         (result) => {
           console.log(result.text);
-          alert("Thank you! Your email has been sent.");
+          if (result.text === "OK") setApiResult(result.text);
         },
         (error) => {
           console.log(error.text);
@@ -95,6 +117,7 @@ const Contact = forwardRef<
           </p>
         </button>
       </div>
+      {showSnackbar && <SnackbarEng />}
     </div>
   );
 });

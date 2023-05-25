@@ -30,22 +30,19 @@ module.exports = {
         // => @media (min-width: 1536px) { ... }
       },
       animation: {
-        fadeIn: 'fadeIn 1s',
-        fadeOut: 'fadeOut 1s'
+        flyInAndOut: 'flyInAndOut 4s ease-out'
       },
       keyframes: {
-        fadeIn: {
+        flyInAndOut: {
           '0%': {
             bottom: '-5rem',
             left: '1rem',
           },
-          '100%': {
+          '15%': {
             bottom: '1rem',
             left: '1rem',
           },
-        },
-        fadeOut: {
-          '0%': {
+          '90%': {
             bottom: '1rem',
             left: '1rem',
           },
@@ -54,9 +51,6 @@ module.exports = {
             left: '1rem',
           },
         },
-      },
-      transitionDelay: {
-        '2000': '2000ms',
       },
     },
   },
