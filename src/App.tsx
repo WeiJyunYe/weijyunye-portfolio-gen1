@@ -7,6 +7,7 @@ import MainEng from "./components/MainEng";
 import MainCht from "./components/MainCht";
 import WorkEng from "./components/WorkEng";
 import WorkCht from "./components/WorkCht";
+import SnackbarEng from "./components/elements/SnackbarEng";
 import { useRef } from "react";
 import { useState } from "react";
 
@@ -15,6 +16,7 @@ const App = () => {
   const aboutRef = useRef<HTMLDivElement>(null);
   const workRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
+  const snackbarRef = useRef<HTMLDivElement>(null);
   const [isEng, setIsEng] = useState<boolean>(true);
 
   const languageSwitch = () => {
@@ -46,6 +48,11 @@ const App = () => {
         <ContactEng ref={contactRef} mainRef={mainRef} />
       ) : (
         <ContactCht ref={contactRef} mainRef={mainRef} />
+      )}
+      {isEng ? (
+        <SnackbarEng ref={snackbarRef} />
+      ) : (
+        <SnackbarEng ref={snackbarRef} />
       )}
     </div>
   );

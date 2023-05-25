@@ -29,6 +29,35 @@ module.exports = {
         '2xl': '1536px',
         // => @media (min-width: 1536px) { ... }
       },
+      animation: {
+        fadeIn: 'fadeIn 1s',
+        fadeOut: 'fadeOut 1s'
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': {
+            bottom: '-5rem',
+            left: '1rem',
+          },
+          '100%': {
+            bottom: '1rem',
+            left: '1rem',
+          },
+        },
+        fadeOut: {
+          '0%': {
+            bottom: '1rem',
+            left: '1rem',
+          },
+          '100%': {
+            bottom: '-5rem',
+            left: '1rem',
+          },
+        },
+      },
+      transitionDelay: {
+        '2000': '2000ms',
+      },
     },
   },
   plugins: [],

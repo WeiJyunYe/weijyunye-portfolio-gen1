@@ -81,7 +81,7 @@ const About = forwardRef<HTMLDivElement>((props, ref) => {
             <img
               src={myPortrait}
               alt="portrait of Weijyun"
-              className="rounded-md h-48 w-auto md:h-60 lg:h-72"
+              className="rounded h-48 w-auto md:h-60 lg:h-72"
             />
           </div>
         </div>

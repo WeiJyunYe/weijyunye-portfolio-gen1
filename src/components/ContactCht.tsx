@@ -17,18 +17,9 @@ const Contact = forwardRef<
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!emailJSServiceID || !emailJSTemplateID || !emailJSKey) {
-      console.error("EmailJS environment variables not set.");
-      return;
-    }
     if (form.current === null) return;
     emailjs
-      .sendForm(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID!,
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID!,
-        form.current,
-        process.env.REACT_APP_EMAILJS_KEY!
-      )
+      .sendForm(emailJSServiceID, emailJSTemplateID, form.current, emailJSKey)
       .then(
         (result) => {
           console.log(result.text);
