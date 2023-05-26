@@ -8,6 +8,7 @@ import React, {
 import emailjs from "@emailjs/browser";
 import RocketRoundedIcon from "@mui/icons-material/RocketRounded";
 import SnackbarEng from "./elements/SnackbarEng";
+import ModalEng from "./elements/ModalEng";
 
 const Contact = forwardRef<
   HTMLDivElement,
@@ -16,7 +17,9 @@ const Contact = forwardRef<
   }
 >((props, ref) => {
   const [showSnackbar, setShowSnackbar] = useState<boolean>(false);
-  const [apiResult, setApiResult] = useState<string>("");
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [closeModal, setCloseModal] = useState<boolean>(false);
+  const [apiResult, setApiResult] = useState<string>("init");
 
   const form = useRef<HTMLFormElement>(null);
 
@@ -24,17 +27,30 @@ const Contact = forwardRef<
   const emailJSTemplateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID as string;
   const emailJSKey = process.env.REACT_APP_EMAILJS_KEY as string;
 
+  const handleCloseModal = () => setCloseModal(!closeModal);
+
   useEffect(() => {
     if (apiResult === "OK") {
       setShowSnackbar(true);
       setTimeout(() => {
-        setApiResult("");
+        setApiResult("init");
         setShowSnackbar(false);
-        console.log(apiResult);
-        console.log(showSnackbar);
       }, 4000);
     }
+    if (apiResult === "") {
+      setShowModal(true);
+    }
   }, [apiResult]);
+
+  useEffect(() => {
+    if (closeModal === true) {
+      setTimeout(() => {
+        setApiResult("init");
+        setCloseModal(false);
+        setShowModal(false);
+      }, 2000);
+    }
+  }, [closeModal]);
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -42,18 +58,14 @@ const Contact = forwardRef<
     if (form.current === null) return;
     emailjs
       .sendForm(emailJSServiceID, emailJSTemplateID, form.current, emailJSKey)
-      .then(
-        (result) => {
-          console.log(result.text);
-          if (result.text === "OK") setApiResult(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-          alert(
-            "Oops. Something went wrong. Please try again later. If the issue still occurs, please assist me by reporting the error at https://github.com/WeiJyunYe/weijyunye.github.io/issues Thank you!"
-          );
-        }
-      );
+      .then((result) => {
+        console.log(result.text);
+        if (result.text === "OK") setApiResult(result.text);
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error.text === "") setApiResult(error.text);
+      });
     e.currentTarget.reset();
   };
   return (
@@ -118,6 +130,9 @@ const Contact = forwardRef<
         </button>
       </div>
       {showSnackbar && <SnackbarEng />}
+      {showModal && (
+        <ModalEng handleCloseModal={handleCloseModal} closeModal={closeModal} />
+      )}
     </div>
   );
 });

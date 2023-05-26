@@ -30,7 +30,9 @@ module.exports = {
         // => @media (min-width: 1536px) { ... }
       },
       animation: {
-        flyInAndOut: 'flyInAndOut 4s ease-out'
+        flyInAndOut: 'flyInAndOut 4s ease-out',
+        flyIn: 'flyIn 0.6s ease-out forwards',
+        flyOut: 'flyOut 0.4s ease-out forwards',
       },
       keyframes: {
         flyInAndOut: {
@@ -48,6 +50,26 @@ module.exports = {
           },
           '100%': {
             bottom: '-5rem',
+            left: '1rem',
+          },
+        },
+        flyIn: {
+          '0%': {
+            bottom: '-5rem',
+            left: '1rem',
+          },
+          '100%': {
+            bottom: '1rem',
+            left: '1rem',
+          },
+        },
+        flyOut: {
+          '0%': {
+            bottom: '1rem',
+            left: '1rem',
+          },
+          '100%': {
+            bottom: '-8rem',
             left: '1rem',
           },
         },
