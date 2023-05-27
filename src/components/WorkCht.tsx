@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import Card from "./elements/Cards";
-import { workDataSheet } from "../lib/dataCht";
+import { workDataSheet } from "../lib/workDataSheet";
 
 const Work = forwardRef<HTMLDivElement, { isEng: boolean }>((props, ref) => {
   return (
@@ -13,7 +13,7 @@ const Work = forwardRef<HTMLDivElement, { isEng: boolean }>((props, ref) => {
           <p className="py-2 text-slate-400 font-NotoSansCHT">{`// 一些我寫的專案`}</p>
         </div>
         <div className="usm:grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {workDataSheet.map((currentCard) => (
+          {workDataSheet[1].Cht?.map((currentCard) => (
             <Card
               key={currentCard.id}
               title={currentCard.title}

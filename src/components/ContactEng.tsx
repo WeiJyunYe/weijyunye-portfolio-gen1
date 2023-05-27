@@ -7,18 +7,20 @@ import React, {
 } from "react";
 import emailjs from "@emailjs/browser";
 import RocketRoundedIcon from "@mui/icons-material/RocketRounded";
-import SnackbarEng from "./elements/SnackbarEng";
-import ModalEng from "./elements/ModalEng";
+import SnackbarSuccess from "./elements/SnackbarSuccess";
+import SnackbarFail from "./elements/SnackbarFail";
 
 const Contact = forwardRef<
   HTMLDivElement,
   {
     mainRef: RefObject<HTMLDivElement>;
+    isEng: boolean;
   }
 >((props, ref) => {
-  const [showSnackbar, setShowSnackbar] = useState<boolean>(false);
-  const [showModal, setShowModal] = useState<boolean>(false);
-  const [closeModal, setCloseModal] = useState<boolean>(false);
+  const [showSnackbarSuccess, setShowSnackbarSuccess] =
+    useState<boolean>(false);
+  const [showSnackbarFail, setShowSnackbarFail] = useState<boolean>(false);
+  const [closeSnackbarFail, setCloseSnackbarFail] = useState<boolean>(false);
   const [apiResult, setApiResult] = useState<string>("init");
 
   const form = useRef<HTMLFormElement>(null);
@@ -27,30 +29,31 @@ const Contact = forwardRef<
   const emailJSTemplateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID as string;
   const emailJSKey = process.env.REACT_APP_EMAILJS_KEY as string;
 
-  const handleCloseModal = () => setCloseModal(!closeModal);
+  const handleCloseSnackbarFail = () =>
+    setCloseSnackbarFail(!closeSnackbarFail);
 
   useEffect(() => {
     if (apiResult === "OK") {
-      setShowSnackbar(true);
+      setShowSnackbarSuccess(true);
       setTimeout(() => {
         setApiResult("init");
-        setShowSnackbar(false);
+        setShowSnackbarSuccess(false);
       }, 4000);
     }
     if (apiResult === "") {
-      setShowModal(true);
+      setShowSnackbarFail(true);
     }
   }, [apiResult]);
 
   useEffect(() => {
-    if (closeModal === true) {
+    if (closeSnackbarFail === true) {
       setTimeout(() => {
         setApiResult("init");
-        setCloseModal(false);
-        setShowModal(false);
+        setCloseSnackbarFail(false);
+        setShowSnackbarFail(false);
       }, 2000);
     }
-  }, [closeModal]);
+  }, [closeSnackbarFail]);
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -68,6 +71,7 @@ const Contact = forwardRef<
       });
     e.currentTarget.reset();
   };
+
   return (
     <div className="bg-[#001e43] w-full h-screen min-h-[800px] text-slate-300 flex flex-col justify-center items-center p-10">
       <form
@@ -129,9 +133,13 @@ const Contact = forwardRef<
           </p>
         </button>
       </div>
-      {showSnackbar && <SnackbarEng />}
-      {showModal && (
-        <ModalEng handleCloseModal={handleCloseModal} closeModal={closeModal} />
+      {showSnackbarSuccess && <SnackbarSuccess isEng={props.isEng} />}
+      {showSnackbarFail && (
+        <SnackbarFail
+          handleCloseSnackbarFail={handleCloseSnackbarFail}
+          closeSnackbarFail={closeSnackbarFail}
+          isEng={props.isEng}
+        />
       )}
     </div>
   );

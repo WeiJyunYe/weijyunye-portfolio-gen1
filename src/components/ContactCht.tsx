@@ -1,18 +1,59 @@
-import React, { forwardRef, RefObject, useRef } from "react";
+import React, {
+  forwardRef,
+  RefObject,
+  useRef,
+  useState,
+  useEffect,
+} from "react";
 import emailjs from "@emailjs/browser";
 import RocketRoundedIcon from "@mui/icons-material/RocketRounded";
+import SnackbarSuccess from "./elements/SnackbarSuccess";
+import SnackbarFail from "./elements/SnackbarFail";
 
 const Contact = forwardRef<
   HTMLDivElement,
   {
     mainRef: RefObject<HTMLDivElement>;
+    isEng: boolean;
   }
 >((props, ref) => {
+  const [showSnackbarSuccess, setShowSnackbarSuccess] =
+    useState<boolean>(false);
+  const [showSnackbarFail, setShowSnackbarFail] = useState<boolean>(false);
+  const [closeSnackbarFail, setCloseSnackbarFail] = useState<boolean>(false);
+  const [apiResult, setApiResult] = useState<string>("init");
+
   const form = useRef<HTMLFormElement>(null);
 
   const emailJSServiceID = process.env.REACT_APP_EMAILJS_SERVICE_ID as string;
   const emailJSTemplateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID as string;
   const emailJSKey = process.env.REACT_APP_EMAILJS_KEY as string;
+
+  const handleCloseSnackbarFail = () =>
+    setCloseSnackbarFail(!closeSnackbarFail);
+
+  useEffect(() => {
+    if (apiResult === "OK") {
+      setShowSnackbarSuccess(true);
+      setTimeout(() => {
+        setApiResult("init");
+        setShowSnackbarSuccess(false);
+      }, 4000);
+    }
+    if (apiResult === "") {
+      setShowSnackbarFail(true);
+    }
+  }, [apiResult]);
+
+  useEffect(() => {
+    if (closeSnackbarFail === true) {
+      setTimeout(() => {
+        setApiResult("init");
+        setCloseSnackbarFail(false);
+        setShowSnackbarFail(false);
+      }, 2000);
+    }
+  }, [closeSnackbarFail]);
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -20,18 +61,14 @@ const Contact = forwardRef<
     if (form.current === null) return;
     emailjs
       .sendForm(emailJSServiceID, emailJSTemplateID, form.current, emailJSKey)
-      .then(
-        (result) => {
-          console.log(result.text);
-          alert("信件已成功寄出，謝謝你的來信！");
-        },
-        (error) => {
-          console.log(error.text);
-          alert(
-            "寄信失敗，請重新嘗試。若仍然無法寄信，欲請您協助回報問題，請至 https://github.com/WeiJyunYe/weijyunye.github.io/issues 留言，謝謝！"
-          );
-        }
-      );
+      .then((result) => {
+        console.log(result.text);
+        if (result.text === "OK") setApiResult(result.text);
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error.text === "") setApiResult(error.text);
+      });
     e.currentTarget.reset();
   };
 
@@ -96,6 +133,14 @@ const Contact = forwardRef<
           </p>
         </button>
       </div>
+      {showSnackbarSuccess && <SnackbarSuccess isEng={props.isEng} />}
+      {showSnackbarFail && (
+        <SnackbarFail
+          handleCloseSnackbarFail={handleCloseSnackbarFail}
+          closeSnackbarFail={closeSnackbarFail}
+          isEng={props.isEng}
+        />
+      )}
     </div>
   );
 });

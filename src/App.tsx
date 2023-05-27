@@ -43,9 +43,9 @@ const App = () => {
         <WorkCht ref={workRef} isEng={isEng} />
       )}
       {isEng ? (
-        <ContactEng ref={contactRef} mainRef={mainRef} />
+        <ContactEng ref={contactRef} mainRef={mainRef} isEng={isEng} />
       ) : (
-        <ContactCht ref={contactRef} mainRef={mainRef} />
+        <ContactCht ref={contactRef} mainRef={mainRef} isEng={isEng} />
       )}
     </div>
   );
