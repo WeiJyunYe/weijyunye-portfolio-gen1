@@ -69,7 +69,7 @@ const About = forwardRef<HTMLDivElement>((props, ref) => {
               </li>
               <li className="flex flex-col items-center gap-2">
                 <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg"
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
                   alt="icon of tailwind css"
                   className="w-2/5 h-2/5"
                 />
