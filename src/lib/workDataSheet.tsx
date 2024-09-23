@@ -53,8 +53,8 @@ export const workDataSheet: WorkDataSheet[] = [
         id: 1,
         title: "天氣應用",
         bgUrl: "/thumbnail_weather-app.png",
-        demo: "https://weijyunye.github.io/weather-app/",
-        repo: "https://github.com/WeiJyunYe/weather-app",
+        demo: "https://weijyunye.github.io/taiwan-weather-app/",
+        repo: "https://github.com/WeiJyunYe/taiwan-weather-app",
       },
       {
         id: 0,
